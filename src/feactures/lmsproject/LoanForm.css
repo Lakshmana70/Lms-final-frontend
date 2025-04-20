@@ -1,0 +1,107 @@
+.loan-form-page {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.loan-form-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.form-title {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.form-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #3498db;
+    border-radius: 2px;
+}
+
+.form-control, .form-select {
+    height: 50px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.form-control.is-invalid, .form-select.is-invalid {
+    border-color: #dc3545;
+    background-image: none;
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+    color: #dc3545;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.submit-btn {
+    height: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Loading state */
+.form-control:disabled, .form-select:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .loan-form-card {
+        margin: 1rem;
+    }
+
+    .form-title {
+        font-size: 1.75rem;
+    }
+
+    .card-body {
+        padding: 1.5rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .form-control, .form-select, .submit-btn {
+        height: 45px;
+    }
+}

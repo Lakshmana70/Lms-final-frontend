@@ -1,0 +1,163 @@
+.manager-dashboard {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.dashboard-content {
+    padding: 20px 0;
+}
+
+.dashboard-title {
+    color: #2d3748;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1.15rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.10rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.stat-label {
+    color: #718096;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.stat-value {
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.table-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.table th {
+    background: #f8f9fa;
+    color: #2d3748;
+    font-weight: 600;
+    padding: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+    color: #4a5568;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status-badge.pending {
+    background: #ebf8ff;
+    color: #2b6cb0;
+}
+
+.status-badge.processing {
+    background: #faf5ff;
+    color: #6b46c1;
+}
+
+.status-badge.success {
+    background: #f0fff4;
+    color: #2f855a;
+}
+
+.action-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.loading-state {
+    padding: 3rem;
+    text-align: center;
+}
+
+.empty-state {
+    padding: 3rem;
+    text-align: center;
+    color: #a0aec0;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-title {
+        margin-bottom: 1.5rem;
+    }
+
+    .table th, .table td {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+}
+
+/* Animation for status changes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.status-badge {
+    animation: fadeIn 0.3s ease-out;
+}

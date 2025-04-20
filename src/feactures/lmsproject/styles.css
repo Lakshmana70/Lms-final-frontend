@@ -1,0 +1,39 @@
+.admin-dashboard {
+  background-color: #f8f9fa;
+}
+
+.stats-card {
+  min-width: 140px;
+  border-radius: 10px;
+  border: none;
+  transition: transform 0.2s;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.table th {
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.badge {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .stats-card {
+    min-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-card {
+    min-width: 100%;
+  }
+}

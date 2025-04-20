@@ -1,0 +1,32 @@
+/* Import the same styles from ManagerDashboard.css */
+.admin-dashboard {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Add admin-specific styles */
+.stat-card i {
+    font-size: 1.5rem;
+    color: #4299e1;
+}
+
+.status-badge.admin {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.status-badge.manager {
+    background: #fefcbf;
+    color: #975a16;
+}
+
+.status-badge.user {
+    background: #c6f6d5;
+    color: #2f855a;
+}
+
+.action-btn i {
+    margin-right: 0.5rem;
+}
+
+/* Rest of the styles remain the same as ManagerDashboard.css */
