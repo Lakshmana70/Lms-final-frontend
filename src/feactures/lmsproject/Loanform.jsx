@@ -124,6 +124,7 @@ export default function Loanform() {
                                                     placeholder="Down Payment"
                                                     id="downpayment"
                                                 />
+                                                
                                                 <label htmlFor="downpayment">Down Payment</label>
                                             </div>
                                             <div className="form-floating mb-3">
