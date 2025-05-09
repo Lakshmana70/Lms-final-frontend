@@ -9,6 +9,7 @@ export const LmsApi = createApi({
             url: "/login",
             method: "POST",
             body: user,
+          
           }),
     }),
     Addloan: builder.mutation({
