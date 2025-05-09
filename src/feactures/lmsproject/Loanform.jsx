@@ -1,28 +1,12 @@
-import { Field, Form, Formik } from 'formik';
+import React from 'react';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import './LoanForm.css';
-import React from 'react';
 import { useAddloanMutation, useGetintrestratesQuery } from '../../APISERVER/lmsAPI';
 import { useNavigate } from 'react-router-dom';
 import Naverbars from './Header';
 
-const validationSchema = Yup.object({
-  typeofloan: Yup.string().required('Loan type is required'),
-  loanitem: Yup.string().required('Loan item is required'),
-  productcost: Yup.number()
-    .required('Product cost is required')
-    .positive('Must be a positive number'),
-  intrest: Yup.string().required('Interest rate is required'),
-  downpayment: Yup.number()
-    .required('Down payment is required')
-    .positive('Must be a positive number'),
-  customerMobile: Yup.string()
-    .matches(/^[0-9]{10}$/, 'Mobile number must be 10 digits')
-    .required('Mobile number is required'),
-  customerName: Yup.string()
-    .min(3, 'Name must be at least 3 characters')
-    .required('Customer name is required'),
-});
+
 
 export default function Loanform() {
     var [addloanfn] = useAddloanMutation();
@@ -48,8 +32,19 @@ export default function Loanform() {
                                         customerMobile: "",
                                         customerName: "",
                                     }}
-                                    validationSchema={validationSchema}
+                                    validationSchema={Yup.object({
+                                        typeofloan: Yup.string().required("Required"),
+                                        loanitem: Yup.string().required("Required"),
+                                        productcost: Yup.number().required("Required"),
+                                        intrest: Yup.string().required("Required"),
+                                        downpayment: Yup.number().required("Required"),
+                                        customerMobile: Yup.string()
+                                            .required("Required")
+                                            .matches(/^[0-9]{10}$/, "Must be a valid mobile number"),
+                                        customerName: Yup.string().required("Name Required"),
+                                    })}
                                     onSubmit={(values) => {
+                                        console.log("values", values);
                                         values.intrest=JSON.parse(values.intrest)
                                         console.log(values);
                                         addloanfn(values).then((res) => {
@@ -81,6 +76,7 @@ export default function Loanform() {
                                                     <option value="vehical">vehical</option>
                                                   </Field>
                                                 <label htmlFor="typeofloan">Type of Loan</label>
+                                                <ErrorMessage name="typeofloan" component="div" className="text-danger" />
                                             </div>
                                             <div className="form-floating mb-3">
                                                 <Field
@@ -90,6 +86,7 @@ export default function Loanform() {
                                                     id="loanitem"
                                                 />
                                                 <label htmlFor="loanitem">Loan Item</label>
+                                                <ErrorMessage name="loanitem" component="div" className="text-danger" />
                                             </div>
                                             <div className="form-floating mb-3">
                                                 <Field
@@ -99,6 +96,7 @@ export default function Loanform() {
                                                     id="productcost"
                                                 />
                                                 <label htmlFor="productcost">Product Cost</label>
+                                                <ErrorMessage name="productcost" component="div" className="text-danger" />
                                             </div>
                                             <div className="form-floating mb-3">
                                                 <Field
@@ -116,6 +114,7 @@ export default function Loanform() {
           }
              </Field>
                                                 <label htmlFor="tenure">select intrest</label>
+                                                <ErrorMessage name="intrest" component="div" className="text-danger" />
                                             </div>
                                             <div className="form-floating mb-3">
                                                 <Field
@@ -126,6 +125,7 @@ export default function Loanform() {
                                                 />
                                                 
                                                 <label htmlFor="downpayment">Down Payment</label>
+                                                <ErrorMessage name="downpayment" component="div" className="text-danger" />
                                             </div>
                                             <div className="form-floating mb-3">
                                                 <Field
@@ -135,6 +135,7 @@ export default function Loanform() {
                                                     id="customerMobile"
                                                 />
                                                 <label htmlFor="customerMobile">Customer Mobile</label>
+                                                <ErrorMessage name="customerMobile" component="div" className="text-danger" />
                                             </div>
                                             <div className="form-floating mb-3">
                                                 <Field
@@ -144,8 +145,10 @@ export default function Loanform() {
                                                     id="customerName"
                                                 />
                                                 <label htmlFor="customerName">Customer Name</label>
+                                                <ErrorMessage name="customerName" component="div" className="text-danger" />
                                             </div>
-                                            <button type="submit" className="btn btn-primary w-100">Add Loan</button>
+                                            <button  className="btn btn-primary w-100">Add Loan</button>
+
                                         </Form>
                                     )}
                                 </Formik>

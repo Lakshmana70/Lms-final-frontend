@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Usernavebar from "./usernavebar";
 import './UserDashboard.css';
-import Naverbars from "./Header";
 import {
   useGetuserdetailsQuery,
-  useLazyGetloanQuery,
   useLazyGetuserdetailsQuery,
   usePaymentloanMutation,
 } from "../../APISERVER/lmsAPI";
@@ -25,12 +23,12 @@ export default function Userdashbord() {
       });
     });
   }
-
   const totalPaid =
     !isLoading &&
     data?.emis
       .filter((s) => s.emiStatus === "paid")
       .reduce((acc, emi) => acc + emi.emiAmount, 0);
+  
 
   const totalUnpaid =
     !isLoading &&
@@ -39,12 +37,13 @@ export default function Userdashbord() {
       .reduce((acc, emi) => acc + emi.emiAmount, 0);
   const totalpayment =
     !isLoading && data?.emis.reduce((acc, emi) => acc + emi.emiAmount, 0);
+
   useEffect(() => {
     var paid = 0;
     var UnPaid = 0;
     !isLoading &&
       data?.emis.forEach((s) => {
-        if (s.emiStatus == "paid") {
+        if (s.emiStatus === "paid") {
           paid = paid + 1;
         } else {
           UnPaid = UnPaid + 1;
@@ -93,26 +92,7 @@ export default function Userdashbord() {
                         <th>Status</th>
                       </tr>
                     </thead>
-                    {/* <tbody>
-                      {!isLoading && data?.emis.map((emis) => (
-                        <tr>
-                          <td>₹{emis.emiAmount}</td>
-                          <td>{new Date(emis.emiDate).toLocaleDateString()}</td>
-                          <td>
-                            {emis.emiStatus === "paid" ? (
-                              <span className="status-badge paid">Paid</span>
-                            ) : (
-                              <button 
-                                className="btn btn-primary btn-sm pay-btn"
-                                onClick={() => payment(data?._id, emis._id)}
-                              >
-                                Pay Now
-                              </button>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody> */}
+                   
                     <tbody>
   {!isLoading && (() => {
  

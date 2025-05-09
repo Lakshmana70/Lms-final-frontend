@@ -117,6 +117,12 @@
 .signup-link a:hover {
     color: #2b6cb0;
 }
+.demo-accounts {
+    text-align: center;
+    color: #4a5568;
+    font-size: small;
+    
+}
 
 @media (max-width: 576px) {
     .login-card {
@@ -128,7 +134,6 @@
     }
 }
 
-/* Animation for error messages */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }

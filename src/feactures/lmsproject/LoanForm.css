@@ -43,10 +43,10 @@
     box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
 }
 
-.form-control.is-invalid, .form-select.is-invalid {
+/* .form-control.is-invalid, .form-select.is-invalid {
     border-color: #dc3545;
     background-image: none;
-}
+} */
 
 .invalid-feedback {
     font-size: 0.875rem;
@@ -75,13 +75,11 @@
     transform: translateY(0);
 }
 
-/* Loading state */
 .form-control:disabled, .form-select:disabled {
     background-color: #f8f9fa;
     cursor: not-allowed;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .loan-form-card {
         margin: 1rem;

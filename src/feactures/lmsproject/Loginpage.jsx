@@ -106,12 +106,16 @@ export default function Loginpage() {
                 <div className="signup-link">
                   Don't have an account?
                   <Link to="/sign" className="ms-2">Create Account</Link>
-                  <p>Default Accounts</p>
-                  <p>Manager:username - ramu,password:ramu12 </p>
-                  <p>Agent: username - lakshmana,password:lakshmana</p>
-                  <p>user: username-sam ,password:Sam123</p>
+                  
 
                 </div>
+                 <div className="demo-accounts  text-center"> 
+
+                  <h6>Demo Accounts</h6>
+                  <p>Manager: ramu/ramu12 </p>
+                  <p>Agent:  lakshmana/lakshmana</p>
+                  <p>User: sam /Sam123</p>
+                   </div>
                 
               </Form>
             )}
