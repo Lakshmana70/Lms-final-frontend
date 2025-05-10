@@ -114,7 +114,7 @@ export default function Loginpage() {
                   <h6>Demo Accounts</h6>
                   <p>Manager: ramu/ramu12 </p>
                   <p>Agent:  lakshmana/lakshmana</p>
-                  <p>User: sam /Sam123</p>
+                  <p>User: Raju /Raju12</p>
                    </div>
                 
               </Form>

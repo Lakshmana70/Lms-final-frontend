@@ -87,6 +87,8 @@ export default function Userdashbord() {
                   <table className="table table-hover align-middle">
                     <thead>
                       <tr>
+                        <th>Principal</th>
+                        <th>Interest</th>
                         <th>EMI Amount</th>
                         <th>Due Date</th>
                         <th>Status</th>
@@ -100,6 +102,8 @@ export default function Userdashbord() {
 
     return data?.emis.map((emis, index) => (
       <tr key={emis._id}>
+        <td>₹{emis.Principal}</td>
+        <td>₹{emis.Interest}</td>
         <td>₹{emis.emiAmount}</td>
         <td>{new Date(emis.emiDate).toLocaleDateString()}</td>
         <td>

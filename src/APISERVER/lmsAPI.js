@@ -2,7 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const LmsApi = createApi({
   reducerPath: 'LmsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://lms-backend-qvwl.onrender.com' }),
+  baseQuery: fetchBaseQuery({ baseUrl:
+         'https://lms-backend-qvwl.onrender.com'
+          // 'http://localhost:8500'
+   }),
   endpoints: (builder) => ({
     loginpage: builder.mutation({
         query: (user) => ({
